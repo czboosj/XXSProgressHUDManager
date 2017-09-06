@@ -224,11 +224,11 @@
         
         NSString *imageStr = @"";
         if (makeObj.xz_hudState == XZProgressHUDTypeSuccess) {
-            imageStr = @"hudSuccess";
+            imageStr = @"ZX_MBProgressManagerResources.bundle/hudSuccess";
         }else if (makeObj.xz_hudState == XZProgressHUDTypeError) {
-            imageStr = @"hudError";
+            imageStr = @"ZX_MBProgressManagerResources.bundle/hudError";
         }else if (makeObj.xz_hudState == XZProgressHUDTypeWarning) {
-            imageStr = @"hudInfo";
+            imageStr = @"ZX_MBProgressManagerResources.bundle/hudInfo";
         }else {
             hud.minSize=CGSizeMake(40,30);
         }
@@ -264,8 +264,8 @@
 + (MBProgressHUD *)configHUDWithMakeObj:(XZMBProgressManager *)makeObj {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:makeObj.xz_inView animated:makeObj.xz_animated];
     hud.detailsLabel.text=makeObj.xz_message;
-    hud.detailsLabelFont = [UIFont systemFontOfSize:16.0];
-    hud.color = makeObj.xz_HUDColor;
+    hud.detailsLabel.font = [UIFont systemFontOfSize:16.0];
+    hud.bezelView.backgroundColor = makeObj.xz_HUDColor;
     hud.contentColor = makeObj.xz_ContentColor;
     hud.animationType = MBProgressHUDAnimationZoomOut;
     hud.userInteractionEnabled=makeObj.xz_maskType;
